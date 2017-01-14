@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex';
-import marked from "marked";
 import actions from 'pages/index/vuex/actions';
 import './article.css';
 

@@ -49,7 +49,7 @@ module.exports = {
     vue: {
         loaders: {
             css: ExtractTextPlugin.extract("css"),
-            sass: ExtractTextPlugin.extract("css!sass")
+            sass: ExtractTextPlugin.extract("css!postcss!sass")
         }
     },
     resolve:{

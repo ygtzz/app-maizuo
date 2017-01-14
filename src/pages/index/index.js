@@ -2,7 +2,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import { sync } from 'vuex-router-sync';
 import store from './vuex/store';
-import footer from 'widget/footer/footer';
+import 'static/css/normalize.css';
+import App from './app.vue';
+//import footer from 'widget/footer/footer.vue';
 //import Trend from './widget/trend/trend';
 // import Article from './widget/article/article';
 // import Notfound from './widget/error/notfound';
@@ -39,17 +41,27 @@ const router = new VueRouter({
     ]
 });
 
-const App = new Vue({
-    router,
-    store,
-    template:`
-       <div id="app" class="row-fluid">
-        <router-view></router-view>
-        <c-footer></c-footer>
-       </div>
-    `
-});
+// const App = new Vue({
+//     router,
+//     store,
+//     template:`
+//        <div id="app" class="row-fluid">
+//             <router-view></router-view>
+//             <c-footer></c-footer>
+//        </div>
+//     `,
+//     components:{
+//         'c-footer': footer
+//     }
+// });
 
 sync(store, router);
 
-App.$mount('#app');
+new Vue({
+  router,
+  el: '#app',
+  store,
+  render: h => h(App)
+})
+
+//app.$mount('#app');
