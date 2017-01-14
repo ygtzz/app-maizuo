@@ -1,2 +1,4 @@
 # app-maizuo
-模仿maizuo app
+
+模仿卖座app
+
