@@ -25,7 +25,6 @@ export default {
 } 
 </script>
 <style lang="sass" scoped>
-    html,body{height:100%;width:100%;}
     .row-fluid{height:100%;width:100%}
     .container{
         height:100%;width:100%;

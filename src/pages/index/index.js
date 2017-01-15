@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 import { sync } from 'vuex-router-sync';
 import store from './vuex/store';
 import 'static/css/normalize.css';
+//import 'static/css/font-awesome.min.css';
+import 'static/css/site.css';
 import App from './app.vue';
 //import footer from 'widget/footer/footer.vue';
 //import Trend from './widget/trend/trend';
@@ -32,12 +34,12 @@ const Notfound = resolve => {
 const router = new VueRouter({
     mode:'hash',
     routes: [
-        { path: '/', component: Trend },
-        { path: '/p/:article_id', component: Article, name:'article'},
-        { path: '/error/notfound', component: Notfound },
-        { path: '/:type/:cate', component: Trend},
-        { path: '/', redirect: '/hot/now'},
-        { path: '*', redirect: '/error/notfound'}
+        { path: '/', component: Notfound }
+        // { path: '/p/:article_id', component: Article, name:'article'},
+        // { path: '/error/notfound', component: Notfound },
+        // { path: '/:type/:cate', component: Trend},
+        // { path: '/', redirect: '/hot/now'},
+        // { path: '*', redirect: '/error/notfound'}
     ]
 });
 
