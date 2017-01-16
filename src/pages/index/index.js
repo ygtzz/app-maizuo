@@ -7,9 +7,6 @@ import 'static/css/normalize.css';
 import 'static/css/site.css';
 import App from './app.vue';
 import home from './widget/home/home.vue';
-//import Trend from './widget/trend/trend';
-// import Article from './widget/article/article';
-// import Notfound from './widget/error/notfound';
 
 Vue.use(VueRouter);
 
@@ -17,18 +14,6 @@ Vue.use(VueRouter);
 //     require.ensure(['./widget/trend/trend.vue'],() => {
 //         resolve(require('./widget/trend/trend.vue'));
 //     },'trend')
-// };
-
-// const Article = resolve => {
-//     require.ensure(['./widget/article/article.vue'],() => {
-//         resolve(require('./widget/article/article.vue'));
-//     },'artilce')
-// };
-
-// const Notfound = resolve => {
-//     require.ensure(['./widget/error/notfound.vue'],() => {
-//         resolve(require('./widget/error/notfound.vue'));
-//     },'notfound')
 // };
 
 const router = new VueRouter({
@@ -43,20 +28,6 @@ const router = new VueRouter({
     ]
 });
 
-// const App = new Vue({
-//     router,
-//     store,
-//     template:`
-//        <div id="app" class="row-fluid">
-//             <router-view></router-view>
-//             <c-footer></c-footer>
-//        </div>
-//     `,
-//     components:{
-//         'c-footer': footer
-//     }
-// });
-
 sync(store, router);
 
 new Vue({
@@ -65,5 +36,3 @@ new Vue({
   store,
   render: h => h(App)
 })
-
-//app.$mount('#app');

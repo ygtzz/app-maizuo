@@ -14,13 +14,13 @@ var mutations = {
 
     },
     [FETCH_BANNER_SUCCESS](state, payLoad) {
-        console.log(payLoad)
+        state.aBanner = payLoad.billboards;
     },
     [FETCH_NOW_PLAYING_SUCCESS](state, payLoad) {
-        console.log(payLoad)
+        state.aNowPlaying = payLoad.films;
     },
     [FETCH_COMING_SOON_SUCCESS](state, payLoad) {
-        console.log(payLoad)
+        state.aComingSoon = payLoad.films;
     }
 };
 
