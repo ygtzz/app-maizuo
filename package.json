@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/ygtzz/webpack-vue-seed#readme",
   "dependencies": {
+    "keymirror": "^0.1.1",
     "mockjs": "^1.0.0",
     "vue": "^2.0.3",
     "vue-awesome-swiper": "^2.3.0",

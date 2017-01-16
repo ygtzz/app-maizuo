@@ -1,7 +1,7 @@
 module.exports = {
-    '/form/getData': {
-        target: 'http://localhost:3000',
-        secure: false,
-        pathRewrite: { '^/form/getData': '/users' }
+    '/v4': {
+        target: 'http://m.maizuo.com',
+        changeOrigin: true,
+        pathRewrite: { '^/v4': '/v4'}
     }
 }

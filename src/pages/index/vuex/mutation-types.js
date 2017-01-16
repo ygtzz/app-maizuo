@@ -1,7 +1,8 @@
+import keymirror from 'keymirror';
 
-export default {
-    'getCateList': 'getCateList',
-    'getArticleList': 'getArticleList',
-    'searchArticles': 'searchArticles',
-    'getArticleDetail': 'getArticleDetail'
-}
+export default keymirror({
+    'getCateList': '',
+    'getArticleList': '',
+    'searchArticles': '',
+    'getArticleDetail': ''
+})
