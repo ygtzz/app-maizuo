@@ -6,7 +6,7 @@ import 'static/css/normalize.css';
 //import 'static/css/font-awesome.min.css';
 import 'static/css/site.css';
 import App from './app.vue';
-import home from './widget/home/home.vue';
+import home from './widget/home.vue';
 
 Vue.use(VueRouter);
 

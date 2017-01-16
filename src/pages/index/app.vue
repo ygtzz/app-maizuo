@@ -37,8 +37,7 @@ export default {
     }
     .body{
         flex:1;
-        overflow:hidden;
-        position:relative;
+        overflow:auto;
     }
     .bottom-fixed{
 

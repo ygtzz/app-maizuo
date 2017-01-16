@@ -1,23 +1,24 @@
 <template>
     <section>
         <div class="slide-banner">
-            <swiper class="swiper" :options="swiperOption">
-                <swiper-slide class="slide" v-for="banner in aBanner">
+            <swipe class="swiper">
+                <swipe-item class="slide" v-for="banner in aBanner">
                     <a :href="banner.url">
                         <img :src="banner.imageUrl" alt="banner" />
                     </a>
-                </swiper-slide>
-                <div class="swiper-pagination" slot="pagination"></div>
-                <div class="swiper-button-prev" slot="button-prev"></div>
-                <div class="swiper-button-next" slot="button-next"></div>
-            </swiper>
+                </swipe-item>
+            </swipe>
+        </div>
+        <div class="movie">
+            <now-playing :aFilm="aNowPlaying"></now-playing>
         </div>
     </section>
 </template>
 
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import {Swipe,SwipeItem} from 'mint-ui';
 import {mapActions,mapState} from 'vuex';
+import nowplaying from './nowplaying.vue';
 
 export default{
     name:'home',
@@ -29,19 +30,14 @@ export default{
             model:'home',
             aBanner(){
                 return this.model.aBanner;
+            },
+            aNowPlaying(){
+                return this.model.aNowPlaying;
+            },
+            aCommingSoon(){
+                return this.model.aCommingSoon;
             }
-        }),
-        swiperOption: {
-            pagination: '.swiper-pagination',
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-            //slidesPerView: 1,
-            paginationClickable: true,
-            //spaceBetween: 30,
-            autoplay: 3000,
-            autoHeight: true,
-            //loop: true
-        }
+        })
     },
     methods:{
         ...mapActions({
@@ -56,12 +52,19 @@ export default{
         }
     },
     components:{
-        swiper,
-        swiperSlide
+        Swipe,
+        SwipeItem,
+        'now-playing':nowplaying
     }
 }
 </script>
 
 <style lang="sass" scoped>
     .swiper img{width:100%;}
+    .swiper {
+        height: 200px;
+        color: #fff;
+        font-size: 30px;
+        text-align: center;
+    }
 </style>

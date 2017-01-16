@@ -1,1 +1,0 @@
-<script src="./notfound.js"></script>
