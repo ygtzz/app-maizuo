@@ -1,66 +1,118 @@
-import types from './mutation-types';
-import service from './mock';
+import vue from 'vue';
+import vueRes from 'vue-resource';
 
-function fGetArticleDetail(store,id) {
-    var article = service.getArticleDetail(id, function(article) {
-        store.commit(types['getArticleDetail'],article);
+vue.use(vueRes);
+/**
+ * Created by zhengguorong on 16/6/22.
+ */
+/**
+ * get请求
+ * @param  {String} options.url   api地址
+ * @param  {String} options.query query参数
+ * @return {Promise}               Promise
+ */
+const _get = ({ url, query }, commit) => {
+  if (commit) commit('START_LOADING')
+  let _url
+  if (query) {
+    _url = `http://localhost:8080/v4/api${url}?${query}`
+  } else {
+    _url = `http://localhost:8080/v4/api${url}`
+  }
+
+  return vue.http.get(_url)
+    .then((res) => {
+      if (commit) commit('FINISH_LOADING')
+      if (res.status >= 200 && res.status < 300) {
+        return res.data
+      }
+      return Promise.reject(new Error(res.status))
     })
 }
 
-function fGetCateList(store,{type,cate}){
-    var cateList = {
-        'hot' : [{
-            'id' : 'now',
-            'name' : '当前热门'
-        },
-        {
-            'id' : 'weekly',
-            'name' : '七日热门'
-        },
-        {
-            'id' : 'mouthly',
-            'name' : '三十日热门'
-        }],
-
-        'notes' : [{
-            'id' : 'all',
-            'name' : '全部'
-        },
-        {
-            'id' : '13',
-            'name' : '市集'
-        },
-        {
-            'id' : '14',
-            'name' : '生活家'
-        },
-        {
-            'id' : '15',
-            'name' : '世间事'
-        }]
-    };
-    var list  = cateList[type] || [];
-    for (var i = 0; i < list.length; i++) {
-        list[i]['active'] = list[i]['id'] == cate;
-    };      
-    store.commit(types['getCateList'],list);
-}
-
-function fGetArticleList (store,{type,cate}) {
-    service.getArticleList(type,cate,function(articles){
-        store.commit(types['getArticleList'],articles);
+/**
+ * 获取即将开始电影列表
+ * @param  {Function} options.commit store对象解构出来的函数，无需手动提供
+ * @param  {Number} page             页数
+ * @param  {Number} count             每页数量
+ * @return {Promise}                  Promise
+ */
+export const fetchComingSoonLists = ({ commit }, page, count) => {
+  const url = '/film/coming-soon'
+  const query = `count=${count}&page=${page}&_t=` + new Date().getTime()
+  return _get({url, query}, commit)
+    .then((json) => {
+      if (json.status === 0) {
+        return commit('FETCH_COMING_SOON_SUCCESS', json.data)
+      }
+      return Promise.reject(new Error('fetchFilmsLists failure'))
+    })
+    .catch((error) => {
+      // commit('FETCH_TOPIC_LISTS_FAILURE', topicTab, page)
+      return Promise.reject(error)
     })
 }
-
-function fSearchArticles(store,keyword){
-    service.searchArticles(keyword,function(articles){
-        store.commit(types['searchArticles'],articles);
+/**
+ * 获取正在热映电影列表
+ * @param  {Function} options.commit store对象解构出来的函数，无需手动提供
+ * @param  {Number} page             页数
+ * @param  {Number} count             每页数量
+ * @return {Promise}                  Promise
+ */
+export const fetchNowPlayingLists = ({ commit }, page, count) => {
+  const url = '/film/now-playing'
+  const query = `count=${count}&page=${page}&_t=` + new Date().getTime()
+  return _get({ url, query }, commit)
+    .then((json) => {
+      if (json.status === 0) {
+        return commit('FETCH_NOW_PLAYING_SUCCESS', json.data)
+      }
+      return Promise.reject(new Error('FETCH_NOW_PLAYING failure'))
+    })
+    .catch((error) => {
+      // commit('FETCH_TOPIC_LISTS_FAILURE', topicTab, page)
+      return Promise.reject(error)
     })
 }
-
-export default {
-    fGetArticleDetail:fGetArticleDetail,
-    fGetCateList:fGetCateList,
-    fGetArticleList:fGetArticleList,
-    fSearchArticles:fSearchArticles
+/**
+ * 获取电影详情
+ * @param  {Function} options.commit store对象解构出来的函数，无需手动提供
+ * @param  {Number} id             电影id
+ * @return {Promise}                  Promise
+ */
+export const fetchFilmDetail = ({commit}, id) => {
+  const url = '/film/' + id
+  const query = '_t=' + new Date().getTime()
+  return _get({ url, query }, commit)
+    .then((json) => {
+      if (json.status === 0) {
+        return commit('FETCH_DETAIL_SUCCESS', json.data)
+      }
+      return Promise.reject(new Error('FETCH_DETAIL failure'))
+    })
+    .catch((error) => {
+      // commit('FETCH_TOPIC_LISTS_FAILURE', topicTab, page)
+      return Promise.reject(error)
+    })
+}
+/**
+ * 获取广告
+ * @param  {Function} options.commit store对象解构出来的函数，无需手动提供
+ * @param  {Number} id             电影id
+ * @return {Promise}                  Promise
+ */
+export const fetchBillboards = ({commit}) => {
+  const url = '/billboard/home'
+  const query = '_t=' + new Date().getTime()
+  return _get({ url, query }, commit)
+    .then((json) => {
+      if (json.status === 0) {
+        return commit('FETCH_BANNER_SUCCESS', json.data)
+      }
+      return Promise.reject(new Error('FETCH_BANNER_SUCCESS failure'))
+    })
+    .catch((error) => {
+      // commit('FETCH_TOPIC_LISTS_FAILURE', topicTab, page)
+      return Promise.reject(error)
+    })
 }

@@ -21,8 +21,8 @@ module.exports = {
     module: {
         loaders: [
             {test: /\.(js|jsx|es)$/, loader: "babel", exclude: /node_modules/},
-            {test: /\.css$/, loader: ExtractTextPlugin.extract('style','css!postcss')},
-            {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!postcss!sass')},
+            {test: /\.css$/, loader: 'style!css?importLoaders=1!postcss'},
+            {test: /\.scss$/, loader:'style!css?importLoaders=2!postcss!sass'},
             {test: /\.(html)$/, loader: 'html'},
             {test: /\.vue$/, loader: 'vue'},
             {
@@ -48,8 +48,8 @@ module.exports = {
     },
     vue: {
         loaders: {
-            css: ExtractTextPlugin.extract("css"),
-            sass: ExtractTextPlugin.extract("css!postcss!sass")
+            css: "style!css?importLoaders=1!postcss",
+            sass: "style!css?importLoaders=2!postcss!sass"
         }
     },
     resolve:{

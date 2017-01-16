@@ -6,35 +6,35 @@ import 'static/css/normalize.css';
 //import 'static/css/font-awesome.min.css';
 import 'static/css/site.css';
 import App from './app.vue';
-//import footer from 'widget/footer/footer.vue';
+import home from './widget/home/home.vue';
 //import Trend from './widget/trend/trend';
 // import Article from './widget/article/article';
 // import Notfound from './widget/error/notfound';
 
 Vue.use(VueRouter);
 
-const Trend = resolve => {
-    require.ensure(['./widget/trend/trend.vue'],() => {
-        resolve(require('./widget/trend/trend.vue'));
-    },'trend')
-};
+// const Trend = resolve => {
+//     require.ensure(['./widget/trend/trend.vue'],() => {
+//         resolve(require('./widget/trend/trend.vue'));
+//     },'trend')
+// };
 
-const Article = resolve => {
-    require.ensure(['./widget/article/article.vue'],() => {
-        resolve(require('./widget/article/article.vue'));
-    },'artilce')
-};
+// const Article = resolve => {
+//     require.ensure(['./widget/article/article.vue'],() => {
+//         resolve(require('./widget/article/article.vue'));
+//     },'artilce')
+// };
 
-const Notfound = resolve => {
-    require.ensure(['./widget/error/notfound.vue'],() => {
-        resolve(require('./widget/error/notfound.vue'));
-    },'notfound')
-};
+// const Notfound = resolve => {
+//     require.ensure(['./widget/error/notfound.vue'],() => {
+//         resolve(require('./widget/error/notfound.vue'));
+//     },'notfound')
+// };
 
 const router = new VueRouter({
     mode:'hash',
     routes: [
-        { path: '/', component: Notfound }
+        { path: '/', component: home }
         // { path: '/p/:article_id', component: Article, name:'article'},
         // { path: '/error/notfound', component: Notfound },
         // { path: '/:type/:cate', component: Trend},

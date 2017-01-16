@@ -1,9 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import trend from './modules/trend';
-import article from './modules/article';
+import home from './modules/home';
 import * as getters from './getters'
-import actions from './actions';
+import * as actions from './actions';
 
 Vue.use(Vuex);
 
@@ -11,7 +10,6 @@ export default new Vuex.Store({
     actions,
     getters,
     modules:{
-        trend,
-        article
+        home
     }
 });
