@@ -67,6 +67,16 @@ module.exports = merge(baseWebapckConfig, {
         filename: '/static/scripts/[name].[chunkhash:8].js',
         chunkFilename: "/static/scripts/[name].[chunkhash:8].js"
     },
+    loaders:{
+        {test: /\.css$/, loader: ExtractTextPlugin.extract('style','css!postcss')},
+        {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!postcss!sass')}
+    },
+    vue: {
+        loaders: {
+            css: ExtractTextPlugin.extract('style','css!postcss'),
+            sass: ExtractTextPlugin.extract('css!postcss!sass')
+        }
+    },
     plugins: aPlugin,
     devtool: 'cheap-module-source-map'
 });

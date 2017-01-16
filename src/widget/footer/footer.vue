@@ -35,9 +35,12 @@ export default {
         height:50px;
         display:flex;
         align-items:center;
+        a:link,a:visited,a:hover,a:active{color:#5D656B}
         a{
             display:block;
             flex:1;
+            text-decoration:none;
+            cursor:pointer;
         }
         p{margin:0;padding:0;margin-top:2px}
         i{

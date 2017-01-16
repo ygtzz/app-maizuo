@@ -15,8 +15,8 @@ var aPlugin = [
         'process.env.NODE_ENV': JSON.stringify('development'),
         __DEV__: JSON.stringify(JSON.parse('true'))
     }),
-    new webpack.HotModuleReplacementPlugin()
-    //new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
 ];
 
 var oEntry = baseWebapckConfig.entry,
@@ -37,6 +37,7 @@ module.exports = merge(baseWebapckConfig,{
     devtool: 'cheap-module-eval-source-map',
     devServer: {
         contentBase:        config.sDist,
+        hot:                true,
         historyApiFallback: true,
         inline:             true,
         progress:           true,
