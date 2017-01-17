@@ -39,7 +39,7 @@ export default {
     .body{
         flex:1;
         overflow:auto;
-        padding-bottom:50px;        
+        padding-bottom:20px;        
     }
     .bottom-fixed{
         border-top: 1px solid #E7E7E7;

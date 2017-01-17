@@ -13,7 +13,6 @@
 
 <script>
 import {Button} from 'mint-ui';
-import {mapActions,mapState} from 'vuex';
 import film from './film.vue';
 
 export default{

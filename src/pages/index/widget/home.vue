@@ -11,6 +11,7 @@
         </div>
         <div class="movie">
             <now-playing :aFilm="aNowPlaying"></now-playing>
+            <comingsoon :aFilm="aComingSoon"></comingsoon>
         </div>
     </section>
 </template>
@@ -19,6 +20,7 @@
 import {Swipe,SwipeItem} from 'mint-ui';
 import {mapActions,mapState} from 'vuex';
 import nowplaying from './nowplaying.vue';
+import comingsoon from './comingsoon.vue';
 
 export default{
     name:'home',
@@ -34,8 +36,8 @@ export default{
             aNowPlaying(){
                 return this.model.aNowPlaying;
             },
-            aCommingSoon(){
-                return this.model.aCommingSoon;
+            aComingSoon(){
+                return this.model.aComingSoon.reverse();
             }
         })
     },
@@ -54,7 +56,8 @@ export default{
     components:{
         Swipe,
         SwipeItem,
-        'now-playing':nowplaying
+        'now-playing':nowplaying,
+        comingsoon
     }
 }
 </script>
