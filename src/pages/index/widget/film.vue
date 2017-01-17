@@ -6,11 +6,16 @@
         <div class="film-text">
             <div>
                 <p v-text="film.name"></p>
-                <p v-if="bNow" class="count">{{film.cinemaCount}}家影院上映{{film.watchCount}}人购票</p>
+                <p v-show="bNow" class="count">
+                    <span v-text="film.cinemaCount"></span>
+                    <span>家影院上映</span>
+                    <span v-text="film.watchCount"></span>
+                    <span>人购票</span>
+                </p>
             </div>
             <div class="right">
-                <span class="grade" v-if="bNow" v-text="film.grade"></span>
-                <span class="showtime" v-if="!bNow" v-text="showtime"></span>
+                <span class="grade" v-show="bNow" v-text="film.grade"></span>
+                <span class="showtime" v-show="!bNow" v-text="showtime"></span>
             </div>
         </div>
     </div>
