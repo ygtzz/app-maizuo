@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="row-fluid">
+    <div id="app">
         <div class="container">
             <header class="top-fixed">
                 <c-header></c-header>  
@@ -25,12 +25,13 @@ export default {
 } 
 </script>
 <style lang="sass" scoped>
-    .row-fluid{height:100%;width:100%}
+    #app{height:100%;width:100%;}
     .container{
         height:100%;width:100%;
         overflow:hidden;
         display:flex;
         flex-direction:column;
+        background-color:#EBEBEB;
     }
     .top-fixed{
         
@@ -40,6 +41,6 @@ export default {
         overflow:auto;
     }
     .bottom-fixed{
-
+        border-top: 1px solid #E7E7E7;
     }
 </style>
