@@ -33,7 +33,7 @@ export default{
 }
 </script>
 
-<style lang="sass" >
+<style lang="sass" scoped>
      .leftNav-enter-active,.leftNav-leave-active{
          transition:transform ease .4s;
      }
