@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import home from './modules/home';
 import app from './modules/app';
+import detail from './modules/detail';
 import * as getters from './getters'
 import * as actions from './actions';
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
     getters,
     modules:{
         app,
-        home
+        home,
+        detail
     }
 });

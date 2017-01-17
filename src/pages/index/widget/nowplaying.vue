@@ -2,7 +2,9 @@
     <div class="nowPlaying">
         <ul class="nowlist">
             <li class="now-item" v-for="film in aFilm">
-                <film :film="film"></film>
+                <router-link :to="{name:'detail',params:{id:film.id}}">
+                    <film :film="film"></film>   
+                </router-link>
             </li>
         </ul>
         <div class="more">

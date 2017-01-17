@@ -52,5 +52,6 @@ export default {
     }
     .bottom-fixed{
         border-top: 1px solid #E7E7E7;
+        display:none;
     }
 </style>

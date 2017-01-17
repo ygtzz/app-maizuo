@@ -7,6 +7,7 @@ import 'static/css/normalize.css';
 import 'static/css/site.css';
 import App from './app.vue';
 import home from './widget/home.vue';
+import detail from './widget/detail.vue';
 
 Vue.use(VueRouter);
 
@@ -19,8 +20,8 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode:'hash',
     routes: [
-        { path: '/', component: home }
-        // { path: '/p/:article_id', component: Article, name:'article'},
+        { path: '/', component: home ,name:'home'},
+        { path: '/detail/:id', component: detail, name:'detail'},
         // { path: '/error/notfound', component: Notfound },
         // { path: '/:type/:cate', component: Trend},
         // { path: '/', redirect: '/hot/now'},
