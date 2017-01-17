@@ -1,18 +1,12 @@
-import {FETCH_COMING_SOON_SUCCESS,FETCH_NOW_PLAYING_SUCCESS,FETCH_BANNER_SUCCESS,START_LOADING,FINISH_LOADING} from '../mutation-types';
+import {FETCH_COMING_SOON_SUCCESS,FETCH_NOW_PLAYING_SUCCESS,FETCH_BANNER_SUCCESS} from '../mutation-types';
 
-var state = {
+const state = {
     aBanner:[],
     aNowPlaying:[],
     aComingSoon:[]
 }
 
-var mutations = {
-    [START_LOADING](){
-
-    },
-    [FINISH_LOADING](){
-
-    },
+const mutations = {
     [FETCH_BANNER_SUCCESS](state, payLoad) {
         state.aBanner = payLoad.billboards;
     },

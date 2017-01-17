@@ -5,22 +5,31 @@
                 <c-header></c-header>  
             </header>
             <section class="body">
-                <router-view></router-view>   
+                <router-view></router-view>
             </section>
             <footer class="bottom-fixed">
                 <c-footer></c-footer> 
             </footer>
         </div>
+        <sidebar :bShow="model.bShowSideBar"></sidebar>                                   
     </div>
 </template>
 <script>
-import header from 'widget/header/header.vue';
-import footer from 'widget/footer/footer.vue';
+import {mapState} from 'vuex';
+import header from './widget/header.vue';
+import footer from './widget/footer.vue';
+import sidebar from './widget/sidebar.vue';
 
 export default {
+    computed:{
+        ...mapState({
+            model:'app'
+        })
+    },
     components:{
         'c-header':header,
-        'c-footer':footer
+        'c-footer':footer,
+        sidebar
     }
 } 
 </script>

@@ -116,3 +116,7 @@ export const fetchBillboards = ({commit}) => {
       return Promise.reject(error)
     })
 }
+
+export const fToggleSideBar = ({commit}) => {
+    commit('CHANGE_LEFTNAV_STATE')
+}

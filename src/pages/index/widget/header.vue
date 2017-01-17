@@ -1,17 +1,30 @@
 <template>
     <div class="header">
-        <span class="nav-wrap">
-            <i class="fa fa-bars" aria-hidden="true"></i>
+        <span @click="fNavbarClick" class="nav-wrap">
+            <i class="fa fa-bars"></i>
         </span>
         <span class="nav-text">卖座电影</span>
-        <span class="user-wrap">
-            <i class="fa fa-user-o" aria-hidden="true"></i>    
+        <span @click="fNavUserClick" class="user-wrap">
+            <i class="fa fa-user-o"></i>    
         </span>
     </div>
 </template>
 <script>
+import {mapActions} from 'vuex';
+
 export default {
-    name:'c-header'
+    name:'c-header',
+    methods:{
+        ...mapActions({
+            fToggleSideBar:'fToggleSideBar'
+        }),
+        fNavbarClick(){
+            this.fToggleSideBar();
+        },
+        fNavUserClick(){
+
+        }
+    }
 }
 </script>
 <style lang="sass" scoped>
