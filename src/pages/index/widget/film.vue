@@ -6,16 +6,19 @@
         <div class="film-text">
             <div>
                 <p v-text="film.name"></p>
-                <p class="count">{{film.cinemaCount}}家影院上映{{film.watchCount}}人购票</p>
+                <p v-if="bNow" class="count">{{film.cinemaCount}}家影院上映{{film.watchCount}}人购票</p>
             </div>
-            <div class="film-grade">
-                <span v-text="film.grade"></span>
+            <div class="right">
+                <span class="grade" v-if="bNow" v-text="film.grade"></span>
+                <span class="showtime" v-if="!bNow" v-text="showtime"></span>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import {fConvertTimeToMonthDay} from 'widget/util/util'
+
 export default{
     name:'film',
     props: {
@@ -28,8 +31,13 @@ export default{
         default: 'NOW_PLAYING'
       }
     },
-    methods:{
-    
+    computed:{
+        showtime(){
+            return fConvertTimeToMonthDay(this.film.premiereAt) + '上映';
+        },
+        bNow(){
+            return this.type=='NOW_PLAYING';
+        }
     }
 }
 </script>
@@ -49,5 +57,6 @@ export default{
         p{margin:0}
     }
     .count{color:#9a9a9a;}
-    .film-grade{font-size:18px;line-height:18px;color:#f78360;}
+    .right{color:#f78360;}
+    .grade{font-size:18px;line-height:18px;}
 </style>

@@ -5,7 +5,7 @@
         </div>
         <ul class="cominglist">
             <li class="coming-item" v-for="film in aFilm">
-                <film :film="film"></film>
+                <film :film="film" type="COMING_SOON"></film>
             </li>
         </ul>
     </div>
