@@ -15,7 +15,7 @@
 
 <script>
 import {Button} from 'mint-ui';
-import film from './film.vue';
+import film from '../film.vue';
 
 export default{
     name:'now-playing',

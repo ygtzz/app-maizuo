@@ -6,8 +6,9 @@ import 'static/css/normalize.css';
 //import 'static/css/font-awesome.min.css';
 import 'static/css/site.css';
 import App from './app.vue';
-import home from './widget/home.vue';
+import home from './widget/home/home.vue';
 import detail from './widget/detail.vue';
+import movie from './widget/movie/movie.vue';
 
 Vue.use(VueRouter);
 
@@ -22,7 +23,7 @@ const router = new VueRouter({
     routes: [
         { path: '/', component: home ,name:'home'},
         { path: '/detail/:id', component: detail, name:'detail'},
-        // { path: '/error/notfound', component: Notfound },
+        { path: '/movie', component: movie,name:'movie' },
         // { path: '/:type/:cate', component: Trend},
         // { path: '/', redirect: '/hot/now'},
         // { path: '*', redirect: '/error/notfound'}

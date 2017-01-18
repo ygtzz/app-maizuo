@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import film from './film.vue';
+import film from '../film.vue';
 
 export default{
     name:'coming-soon',
