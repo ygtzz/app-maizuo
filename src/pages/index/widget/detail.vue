@@ -8,13 +8,13 @@
                 影片简介
             </div>
             <dl class="list">
-                <dt>导演：</dt>
+                <dt>导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演：</dt>
                 <dd>{{film.director}}</dd>
-                <dt>主演：</dt>
+                <dt>主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演：</dt>
                 <dd>{{actors}}</dd>
                 <dt>地区语言：</dt>
                 <dd>{{film.nation}}({{film.language}})</dd>
-                <dt>类型：</dt>
+                <dt>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</dt>
                 <dd>{{film.category}}</dd>
                 <dt>上映日期：</dt>
                 <dd>{{showTime}}</dd>
@@ -75,7 +75,7 @@ export default{
     .list{
         padding-left:20px;
         margin-bottom:5px;
-        dt{float:left;}
+        dt{float:left;text-align:justify;}
         dt,dd{padding:3px 0;}
     }
     .intro-text{padding-left:20px;}
