@@ -46,7 +46,7 @@ export default {
 <style lang="sass" scoped>
     .movie{}
     .nav{padding:0 15px;}
-    .list{padding:0;margin:0;list-style:none;display:flex;border-bottom:1px solid #fe6e00;}
+    .list{display:flex;border-bottom:1px solid #fe6e00;}
     .item{line-height:50px;width:50%;text-align:center;font-size:16px;color:#6a6a6a;}
     .item.active{color:#fe6e00;border-bottom:solid;}
 </style>

@@ -33,7 +33,7 @@ export default{
 </script>
 
 <style lang="sass" scoped>
-  .nowlist{padding:0;marigin:0;list-style:none;
+  .nowlist{
      a{text-decoration:none;}
      a:link,a:visited,a:hover,a:active{color:#9a9a9a}
   }

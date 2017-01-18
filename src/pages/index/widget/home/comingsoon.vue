@@ -29,7 +29,7 @@ export default{
 </script>
 
 <style lang="sass" scoped>
-  .cominglist{padding:0;marigin:0;list-style:none;}
+  .cominglist{}
   .coming-item{
       margin:0 17px 17px 17px;
       background-color:#f9f9f9;

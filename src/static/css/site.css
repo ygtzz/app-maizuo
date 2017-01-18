@@ -8,3 +8,5 @@ html * {
     -webkit-text-size-adjust: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+ul{list-style:none;}
+ul,li{margin:0;padding:0}
