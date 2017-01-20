@@ -17,7 +17,7 @@ export default {
         },
         bgUrl:{
             type:String,
-            require:true
+            defalut:'http://static.m.maizuo.com/v4/static/app/asset/3d2cdb3bd9a23609aa2d84e7c2bfd035.png'
         }
     }
 }

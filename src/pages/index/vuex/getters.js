@@ -1,3 +1,2 @@
-export const cates = state => state.trend;
-export const articles = state => state.trend;
-export const article = state => state.article;
+export const aNowPlaying = state => state.home.aNowPlaying;
+export const aComingSoon = state => state.home.aComingSoon;

@@ -8,15 +8,15 @@
         </nav>
         <div>
             <ul class="nowlist">
-                <li class="nowitem">
-                    <now-item :film="{}"></now-item>
+                <li class="nowitem" v-for="film in aNowPlaying">
+                    <now-item :film="film"></now-item>
                 </li>
             </ul>
         </div> 
     </section>
 </template>
 <script>
-import {mapActions} from 'vuex';
+import {mapActions,mapGetters} from 'vuex';
 import nowItem from './now-item.vue';
 
 export default {
@@ -26,8 +26,21 @@ export default {
             navType:'nowplaying'
         }
     },
-    created(){
-
+    watch:{
+        navType(val){
+            if(val == 'nowplaying'){
+                this.fetchNowPlayingLists(1,10);
+            }
+            else{
+                this.fetchComingSoonLists(1,10);
+            }
+        }
+    },
+    computed:{
+        ...mapGetters({
+            aNowPlaying: 'aNowPlaying',
+            aComingSoon: 'aComingSoon'
+        })
     },
     methods:{
         ...mapActions({
