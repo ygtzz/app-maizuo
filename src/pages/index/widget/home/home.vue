@@ -70,4 +70,5 @@ export default{
         font-size: 30px;
         text-align: center;
     }
+    .movie{margin-top:10px;}
 </style>

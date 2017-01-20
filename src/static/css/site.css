@@ -2,6 +2,7 @@ html,body{
     height:100%;
     width:100%;
     font-size:14px;
+    font-family:Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
 }
 html * {
     outline: 0;

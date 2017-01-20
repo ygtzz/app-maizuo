@@ -1,8 +1,6 @@
 <template>
     <div class="film">
-        <div class="film-img">
-            <img :src="film.cover.origin" :alt="film.intro">
-        </div>
+        <c-imgholder :src="film.cover.origin" :alt="film.intro"></c-imgholder>
         <div class="film-text">
             <div>
                 <p v-text="film.name"></p>
@@ -22,7 +20,8 @@
 </template>
 
 <script>
-import {fConvertTimeToMonthDay} from 'widget/util/util'
+import {fConvertTimeToMonthDay} from 'widget/util/util';
+import imgholder from './imgholder.vue';
 
 export default{
     name:'film',
@@ -43,6 +42,9 @@ export default{
         bNow(){
             return this.type=='NOW_PLAYING';
         }
+    },
+    components:{
+        'c-imgholder':imgholder
     }
 }
 </script>
