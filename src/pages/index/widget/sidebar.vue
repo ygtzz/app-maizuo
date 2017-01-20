@@ -6,7 +6,7 @@
                         <router-link :to="{name:'home'}"><li class="item"><span>首页</span><i class="fa fa-angle-right"></i></li></router-link>
                         <router-link :to="{name:'movie'}"><li class="item"><span>影片</span><i class="fa fa-angle-right"></i></li></router-link>
                         <router-link :to="{name:'home'}"><li class="item"><span>影院</span><i class="fa fa-angle-right"></i></li></router-link>
-                        <router-link :to="{name:'home'}"><li class="item"><span>我的</span><i class="fa fa-angle-right"></i></li></router-link>
+                        <router-link :to="{name:'my'}"><li class="item"><span>我的</span><i class="fa fa-angle-right"></i></li></router-link>
                         <router-link :to="{name:'home'}"><li class="item"><span>卖座网查询</span><i class="fa fa-angle-right"></i></li></router-link>
                     </ul>
                 </transition>

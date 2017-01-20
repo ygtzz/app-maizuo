@@ -4,7 +4,7 @@
             <swipe class="swiper">
                 <swipe-item class="slide" v-for="banner in aBanner">
                     <a :href="banner.url">
-                        <img :src="banner.imageUrl" alt="banner" />
+                        <c-imgholder :src="banner.imageUrl" :alt="'banner'"></c-imgholder>
                     </a>
                 </swipe-item>
             </swipe>
@@ -21,6 +21,7 @@ import {Swipe,SwipeItem} from 'mint-ui';
 import {mapActions,mapState} from 'vuex';
 import nowplaying from './nowplaying.vue';
 import comingsoon from './comingsoon.vue';
+import imgholder from '../imgholder.vue';
 
 export default{
     name:'home',
@@ -57,7 +58,8 @@ export default{
         Swipe,
         SwipeItem,
         'now-playing':nowplaying,
-        comingsoon
+        comingsoon,
+        'c-imgholder': imgholder
     }
 }
 </script>
@@ -70,5 +72,5 @@ export default{
         font-size: 30px;
         text-align: center;
     }
-    .movie{margin-top:10px;}
+    .movie{margin-top:15px;}
 </style>

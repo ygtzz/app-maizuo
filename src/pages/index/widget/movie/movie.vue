@@ -7,9 +7,18 @@
             </ul>
         </nav>
         <div>
-            <ul class="nowlist">
+            <ul class="nowlist" :class="{'dn':navType != 'nowplaying'}">
                 <li class="nowitem" v-for="film in aNowPlaying">
-                    <now-item :film="film"></now-item>
+                    <router-link :to="{name:'detail',params:{id:film.id}}">
+                        <now-item :film="film"></now-item>
+                    </router-link>
+                </li>
+            </ul>
+            <ul class="cominglist" :class="{'dn':navType == 'nowplaying'}">
+                <li class="comingitem" v-for="film in aComingSoon">
+                    <router-link :to="{name:'detail',params:{id:film.id}}">
+                        <coming-item :film="film"></coming-item>
+                    </router-link>
                 </li>
             </ul>
         </div> 
@@ -18,6 +27,7 @@
 <script>
 import {mapActions,mapGetters} from 'vuex';
 import nowItem from './now-item.vue';
+import comingItem from './coming-item.vue';
 
 export default {
     name:'c-movie',
@@ -27,13 +37,16 @@ export default {
         }
     },
     watch:{
-        navType(val){
-            if(val == 'nowplaying'){
-                this.fetchNowPlayingLists(1,10);
-            }
-            else{
-                this.fetchComingSoonLists(1,10);
-            }
+        navType:{
+            handler(val){
+                if(val == 'nowplaying'){
+                    this.fetchNowPlayingLists(1,10);
+                }
+                else{
+                    this.fetchComingSoonLists(1,10);
+                }
+            },
+            immediate:true
         }
     },
     computed:{
@@ -52,7 +65,8 @@ export default {
         }
     },
     components:{
-        'now-item':nowItem
+        'now-item':nowItem,
+        'coming-item':comingItem
     }
 }
 </script>

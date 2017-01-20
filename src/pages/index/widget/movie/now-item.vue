@@ -1,11 +1,11 @@
 <template>
-    <div class="coming">
+    <div class="now fix">
        <div class="left">
-            <imgholder :src="film.cover.origin"></imgholder>
+            <imgholder :src="film.poster.thumbnail"></imgholder>
        </div>
        <div class="right">
             <div>
-                <div class="score-wrap">
+                <div class="score-wrap r">
                     <span class="score" v-text="film.grade"></span>
                     <i class="fa fa-angle-right"></i>
                 </div>
@@ -15,7 +15,7 @@
             <div>
                 <span v-text="film.cinemaCount"></span>
                 <span>家影院上映</span>
-                <span v-text="film.watchCount"></span>
+                <span class="watch" v-text="film.watchCount"></span>
                 <span>人购票</span>
             </div>
        </div>
@@ -38,5 +38,27 @@ export default {
 }
 </script>
 <style lang="sass" scoped>
-    
+    .now{
+        font-size:12px;
+        color:#8e8e8e;
+        line-height:24px;
+        padding:15px;
+        border-bottom:1px dashed #c9c9c9;
+        cursor:pointer;
+    }
+    .score{
+        font-size:16px;
+        color:#fc7103;
+    }
+    .title{
+        font-size: 16px;
+        line-height: 32px;
+        color: #000;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .watch{margin-left:30px;}
+    .left{width:60px;float:left;overflow:hidden;}
+    .right{display:table-cell;width:2000px;padding-left:15px}
 </style>

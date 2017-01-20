@@ -5,7 +5,9 @@
         </div>
         <ul class="cominglist">
             <li class="coming-item" v-for="film in aFilm">
-                <film :film="film" type="COMING_SOON"></film>
+                <router-link :to="{name:'detail',params:{id:film.id}}">
+                    <film :film="film" type="COMING_SOON"></film>
+                </router-link>
             </li>
         </ul>
     </div>
@@ -29,7 +31,10 @@ export default{
 </script>
 
 <style lang="sass" scoped>
-  .cominglist{}
+  .cominglist{
+     a{text-decoration:none;}
+     a:link,a:visited,a:hover,a:active{color:#9a9a9a}
+  }
   .coming-item{
       margin:0 17px 17px 17px;
       background-color:#f9f9f9;
