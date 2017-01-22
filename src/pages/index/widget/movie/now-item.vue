@@ -49,6 +49,7 @@ export default {
     .score{
         font-size:16px;
         color:#fc7103;
+        vertical-align:middle;
     }
     .title{
         font-size: 16px;
