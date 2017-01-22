@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/ygtzz/webpack-vue-seed#readme",
   "dependencies": {
+    "fastclick": "^1.0.6",
     "keymirror": "^0.1.1",
     "mint-ui": "^2.1.0",
     "mockjs": "^1.0.0",

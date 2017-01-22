@@ -6,26 +6,18 @@ import 'static/css/normalize.css';
 import 'static/css/quick-layout.css';
 import 'static/css/font-awesome.min.css';
 import 'static/css/site.css';
+import routeConfig from './router.js';
+import FastClick from 'fastclick'
 import App from './app.vue';
-import home from './widget/home/home.vue';
-import detail from './widget/detail.vue';
-import movie from './widget/movie/movie.vue';
-import cinema from './widget/cinema.vue';
-import query from './widget/maizuo-query.vue';
-import my from './widget/my.vue';
+
+window.addEventListener('load', () => {
+  FastClick.attach(document.body)
+});
 
 Vue.use(VueRouter);
-
 const router = new VueRouter({
     mode:'hash',
-    routes: [
-        { path: '/', component: home ,name:'home'},
-        { path: '/detail/:id', component: detail, name:'detail'},
-        { path: '/movie', component: movie,name:'movie' },
-        { path: '/my', component: my,name:'my'},
-        { path: '/cinema', component: cinema,name:'cinema'},
-        { path: '/query', component: query,name:'query'}
-    ]
+    routes:routeConfig
 });
 
 sync(store, router);
