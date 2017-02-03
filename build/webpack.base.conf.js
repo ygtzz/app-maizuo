@@ -1,7 +1,5 @@
 var webpack = require('webpack');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var autoprefixer = require('autoprefixer');
 var config = require('./config');
 var sBase = config.sBase;
@@ -13,11 +11,6 @@ module.exports = {
         filename: '[name].js',
         chunkFilename: "[name].js"
     },
-    plugins: [
-        new CopyWebpackPlugin([
-            { from: 'src/static', to: 'static' },
-         ])
-	],
     module: {
         loaders: [
             {test: /\.(js|jsx|es)$/, loader: "babel", exclude: /node_modules/},
